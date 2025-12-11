@@ -1,0 +1,53 @@
+/*
+ * --------------------------------
+ * ESTILO DEL LANZADOR (Wofi)
+ * --------------------------------
+ */
+
+/* Estilo principal de la ventana (todo el lanzador) */
+window {
+    /* Color de fondo del lanzador */
+    background-color: rgba(30, 30, 30, 0.80); /* Gris oscuro semi-transparente */
+    border-radius: 7px; /* Bordes redondeados */
+    border: 2px solid #8a2be2; /* Borde del color de acento morado */
+    color: #eceff4; /* Color de texto general */
+    font-family: Monospace; /* Puedes cambiar esto a Fira Code, Monospace, etc. */
+    font-size: 15px;
+    padding: 10px;
+}
+
+/* Estilo de la caja exterior (para añadir espacio) */
+#outer-box {
+padding: 4px;
+}
+
+/* Estilo de la barra de búsqueda o entrada de texto */
+#input {
+/* Fondo de la barra de búsqueda */
+background-color: #3b4252;
+color: #eceff4; /* Color del texto de entrada */
+padding: 8px;
+margin-bottom: 10px;
+border-radius: 8px;
+border: none;
+}
+
+/* Estilo del área de resultados (la lista desplazable) */
+#scroll {
+/* No se requiere mucho aquí, solo para asegurar que sea visible */
+}
+
+/* Estilo del texto dentro de cada elemento de la lista */
+#text {
+padding: 6px;
+margin: 2px 0;
+}
+
+/* Estilo del elemento de la lista que está actualmente SELECCIONADO */
+#entry:selected {
+/* Fondo del elemento seleccionado */
+background-color: #8a2be2; /* Color de acento */
+color: #2e3440; /* Texto oscuro en fondo claro */
+border-radius: 6px;
+outline: none; /* Eliminar el contorno feo si aparece */
+}
