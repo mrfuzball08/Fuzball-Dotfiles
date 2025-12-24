@@ -1,207 +1,67 @@
-/*
- * ----------------------------------------------------
- * PALETA DE COLORES:
- * - Morado (Acento Principal): #8a2be2
- * - Azul Frío (Secundario/Fondo Módulos): #2e73ac
- * - Gris Oscuro (Fondo Barra): #1e1e2e
- * - Blanco/Gris Claro (Texto/Resalte): #e0e0e0
- * ----------------------------------------------------
- */
+/* Definición de colores Neón */
+@define-color cyan #00ffff;
+@define-color magenta #ff00ff;
+@define-color background rgba(20, 20, 30, 0.8);
 
 * {
-    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
-    font-size: 15px;
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Roboto", sans-serif;
+    font-size: 14px;
+    min-height: 0;
 }
 
-/* === ESTILO DE LA BARRA PRINCIPAL === */
+#window {
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0 15px;
+    border-radius: 8px;
+    margin: 4px 0;
+}
+
 window#waybar {
-    /* Fondo: Gris Oscuro (con ligera opacidad) */
-    background-color: rgba(30, 30, 46, 0.9);
-    /* Borde inferior: Morado de acento */
-    border-top:3px solid #8a2be2;
-    border-bottom: 3px solid #8a2be2;
-    color: #e0e0e0; /* Texto base blanco/gris claro */
-    border-radius: 0px;
-    transition-property: background-color;
-    transition-duration: .5s;
-    margin: 5px; /* Espacio alrededor de la barra */
+    background: @background;
+    border: 2px solid @magenta; /* El borde neón */
+    border-radius: 12px;
+    color: #ffffff;
+    /* Efecto de resplandor exterior */
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5); 
 }
 
-/* === ESTILO DE WORKSPACES (hyprland/workspaces) === */
+#workspaces {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 4px 2px;
+    border-radius: 8px;
+    padding: 0 5px;
+}
+
 #workspaces button {
-padding: 0 10px;
-background-color: transparent;
-color: #b0b0b0; /* Color de Workspace inactivo */
+    padding: 0 8px;
+    color: @cyan;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+    color: @magenta;
+    text-shadow: 0 0 8px @magenta; /* Brillo en el texto */
 }
 
 #workspaces button:hover {
-background: rgba(138, 43, 226, 0.2); /* Fondo morado sutil al pasar el mouse */
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: inset 0 0 5px @cyan;
 }
 
-#workspaces button.focused {
-/* Fondo: Azul Frío */
-background-color: #2e73ac;
-/* Línea de acento: Blanco */
-box-shadow: inset 0 -3px #e0e0e0;
-color: #ffffff;
+/* Estilo para los módulos de la derecha */
+#wireplumber, #cpu, #memory, #clock {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
 }
-
-#workspaces button.urgent {
-/* Urgente: Rojo para contraste */
-background-color: #f53c3c;
-color: #ffffff;
-}
-
-/* === MÓDULOS DE TEXTO E ICONOS GENERALES === */
-#clock,
-#battery,
-#cpu,
-#memory,
-#network,
-#pulseaudio,
-#temperature,
-#backlight,
-#keyboard-state,
-#idle_inhibitor,
-#power-profiles-daemon,
-#custom-media,
-#custom-power,
-#tray,
-#hyprland-mode, /* Renombrado de #mode */
-#hyprland-scratchpad {
-padding: 0 10px;
-color: #e0e0e0; /* Texto blanco en módulos */
-margin: 3px 0px;
-border-radius: 0px;
-margin-right: 5px; /* Espacio entre módulos */
-}
-
-/* === MÓDULOS DE HYPRLAND === */
-#hyprland-window {
-/* Módulo central, no queremos que se mezcle con otros colores */
-padding: 0 15px;
-color: #8a2be2; /* Título de la ventana en morado de acento */
-font-style: italic;
-background-color: transparent;
-}
-
-#hyprland-mode {
-/* Fondo: Morado de acento para modos especiales */
-background-color: #8a2be2;
-box-shadow: inset 0 -3px #e0e0e0;
-}
-
-/* === MÓDULOS DEL LADO DERECHO === */
 
 #clock {
-/* Fondo: Morado de acento */
-background-color: #8a2be2;
-color: #ffffff;
-}
-
-#pulseaudio {
-/* Fondo: Blanco/Gris Claro */
-background-color: #e0e0e0;
-color: #1e1e2e; /* Texto oscuro */
-}
-
-#pulseaudio.muted {
-/* Fondo: Morado más claro (indicador visual) */
-background-color: rgba(138, 43, 226, 0.5);
-color: #e0e0e0;
-}
-
-#network {
-/* Fondo: Azul Frío Principal */
-background-color: #2e73ac;
-color: #ffffff;
-}
-
-#network.disconnected {
-/* Desconectado: Rojo para alerta */
-background-color: #f53c3c;
-}
-
-#power-profiles-daemon {
-/* Fondo base: Azul Principal */
-background-color: #2e73ac;
-}
-#power-profiles-daemon.performance {
-background-color: #f53c3c; /* Rojo para performance alta */
-}
-#power-profiles-daemon.power-saver {
-background-color: #58c973; /* Verde para ahorro */
-}
-
-#cpu {
-/* Fondo: Morado de acento */
-background-color: #8a2be2;
-color: #ffffff;
-}
-
-#memory {
-/* Fondo: Azul Frío Principal */
-background-color: #2e73ac;
-color: #ffffff;
-}
-
-#temperature {
-background-color: #1e1e2e; /* Fondo oscuro */
-border: 1px solid #2e73ac;
-}
-#temperature.critical {
-background-color: #f53c3c;
-}
-
-#backlight {
-background-color: #2e73ac;
-}
-
-#keyboard-state {
-background-color: #8a2be2;
-color: #ffffff;
-}
-
-#battery {
-/* Fondo: Morado de acento */
-background-color: #8a2be2;
-color: #ffffff;
-}
-#battery.charging, #battery.plugged {
-/* Carga: Verde para señal positiva */
-color: #1e1e2e;
-background-color: #58c973;
-}
-#battery.critical:not(.charging) {
-background-color: #f53c3c;
-}
-
-#tray {
-/* Fondo: Azul Frío Principal */
-background-color: #2e73ac;
-color: #ffffff;
-}
-
-/* === MÓDULOS CUSTOM Y AUXILIARES === */
-
-#idle_inhibitor {
-background-color: #3b4252;
-}
-
-#idle_inhibitor.activated {
-background-color: #e0e0e0;
-color: #3b4252;
-}
-
-#custom-media {
-/* Fondo: Morado (para diferenciar de otros módulos) */
-background-color: #8a2be2;
-color: #ffffff;
-min-width: 100px;
-}
-
-#custom-power {
-/* Módulo de apagado: Rojo sutil, siempre visible */
-background-color: #f53c3c;
-color: #ffffff;
+    color: @cyan;
+    font-weight: bold;
 }
