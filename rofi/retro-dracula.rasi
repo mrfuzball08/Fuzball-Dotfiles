@@ -1,0 +1,77 @@
+/*******************************************************************************
+ * ROFI Retro Terminal Theme (Dracula Palette)
+ *******************************************************************************/
+
+* {
+    /* Dracula Retro Colors */
+    bg:      #282a36;
+    fg:      #50fa7b; /* El verde clásico de Dracula para el texto retro */
+    purp:    #bd93f9;
+    sel-bg:  #50fa7b;
+    sel-fg:  #282a36;
+
+    /* Fuente: Si tienes 'CaskaydiaCove Nerd Font' o 'Courier' queda genial */
+    font: "Monospace 12";
+    background-color: transparent;
+}
+
+window {
+    background-color: @bg;
+    border:           2px;
+    border-color:     @fg;
+    padding:          15px;
+    width:            600px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    color: @fg;
+    padding: 0px 0px 10px 0px;
+    margin: 0px 0px 10px 0px;
+
+    border: 0px 0px 2px 0px;
+    border-color: @fg;
+
+    children: [ prompt, entry ];
+}
+
+prompt {
+    margin: 0px 10px 0px 0px;
+    text-color: @fg;
+}
+
+entry {
+    text-color: @fg;
+}
+
+listview {
+    lines: 10;
+    margin: 10px 0px 0px 0px;
+    scrollbar: false;
+}
+
+element {
+    padding: 5px;
+}
+
+element selected {
+    /* Inversión de colores para el efecto de resaltado retro */
+    background-color: @sel-bg;
+    text-color:       @sel-fg;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       #ffffff;
+}
+
+element-icon {
+    size: 20px;
+    padding: 0 10px 0 0;
+}
+configuration {
+    display-drun: "launch terminal > ";
+}

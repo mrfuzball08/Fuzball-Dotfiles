@@ -1,0 +1,81 @@
+/**
+ * ROFI Vintage Terminal Theme - CORREGIDO
+ **/
+
+* {
+    /* Colores */
+    bg:      #000000;
+    fg:      #33ff33;
+    bg-sel:  #33ff33;
+    fg-sel:  #000000;
+    
+    background-color: @bg;
+    text-color:       @fg;
+    font:            "Monospace 12";
+}
+
+window {
+    border:           3px;
+    border-color:     @fg;
+    padding:          20px;
+    width:            600px;
+}
+
+mainbox {
+    spacing:          0px;
+    children:         [ inputbar, listview ];
+}
+
+inputbar {
+    padding:          0px 0px 10px 0px;
+    margin:           0px 0px 10px 0px;
+    border:           0px 0px 2px 0px; 
+    border-color:     @fg;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    margin:           0px 5px 0px 0px;
+}
+configuration{
+    display-drun: "> launch: ";
+}
+entry {
+    /* Rofi no soporta placeholder-color en versiones antiguas, 
+       pero se puede incluir así: */
+    placeholder:       "";
+    text-color:        @fg;
+}
+
+listview {
+    fixed-height:     0;
+    border:           0px;
+    spacing:          5px;
+    scrollbar:        false;
+    lines:            10;
+}
+
+element {
+    padding:          4px;
+}
+
+/* En Rofi moderno, el estilo se aplica a element-text */
+element selected {
+    background-color: @bg-sel;
+    text-color:       @fg-sel;
+}
+
+element-text selected {
+    background-color: @bg-sel;
+    text-color:       @fg-sel;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+/* Forzamos que no haya iconos para el look retro */
+element-icon {
+    size: 0px;
+}

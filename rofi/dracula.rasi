@@ -1,0 +1,85 @@
+/*******************************************************************************
+ * ROFI Color theme - DRACULA
+ *******************************************************************************/
+
+* {
+    /* Dracula colors */
+    drac-bgd: #282a36;
+    drac-cur: #44475a;
+    drac-fgd: #f8f8f2;
+    drac-cmt: #6272a4;
+    drac-cya: #8be9fd;
+    drac-grn: #50fa7b;
+    drac-ora: #ffb86c;
+    drac-pnk: #ff79c6;
+    drac-pur: #bd93f9;
+    drac-red: #ff5555;
+    drac-yel: #f1fa8c;
+
+    font: "JetBrainsMono Nerd Font 12";
+    background-color: @drac-bgd;
+    text-color: @drac-fgd;
+}
+
+window {
+    location: center;
+    anchor:   center;
+    width:    450px;
+    border:   2px;
+    border-color: #282a36;
+    border-radius: 6px;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    color: @drac-pnk;
+    padding: 11px;
+    border: 0 0 2px 0;
+    border-color: @drac-cur;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    padding: 0 12px 0 0;
+}
+
+entry {
+    text-color: @drac-cya;
+}
+
+listview {
+    padding: 8px;
+    lines: 8;
+    columns: 1;
+    fixed-height: 0;
+    spacing: 4px;
+}
+
+element {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+element selected {
+    background-color: @drac-cur;
+    text-color: @drac-grn;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element-icon {
+    size: 20px;
+    padding: 0 10px 0 0;
+    background-color: inherit;
+}
+configuration {
+    display-drun: "App Launcher: ";
+
+}
