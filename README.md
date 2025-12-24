@@ -3,9 +3,9 @@ various personal dotfiles :)
 
 ## CURRENTLY SETUP ON CACHYOS ! ! !
 
-- Hyprland & Hyprpaper configuration (rough around the edges, just manual 4 workspaces hyprpaper setup)
-- hypr/scripts/wallpaper-switcher.sh shell file to automate hyprpaper wallpaper change based on current workspace
-- Waybar setup and css style config
-- Wofi style.css
+- Hyprland & SWWW configuration
+- /Scripts/wallpaper-selector.sh a shell file that allows changing wallpapers using rofi as a graphical selector tool
+- Waybar jsonc setup and css style config
+- rofi setup and custom .rasi files 
 
 - Dotfiles Sync script
